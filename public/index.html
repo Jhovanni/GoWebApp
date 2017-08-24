@@ -26,6 +26,7 @@
   <!-- Custom styles for this template -->
   <link href="css/new-age.min.css" rel="stylesheet">
   <link href="css/custom.css" rel="stylesheet">
+  <link href="css/no-more-tables.css" rel="stylesheet">
 
 </head>
 
@@ -43,13 +44,13 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#download">Acerca</a>
+          <a class="nav-link js-scroll-trigger" href="#agregar">Agregar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#features">Contenido</a>
+          <a class="nav-link js-scroll-trigger" href="#personas">Personas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#contact">Contacto</a>
+          <a class="nav-link js-scroll-trigger" href="#admin">Administración</a>
         </li>
       </ul>
     </div>
@@ -64,33 +65,7 @@
           <h1 class="mb-5">
             Registro y visualización de personas usando Go
           </h1>
-          <form action="/registrar" method="post" id="registroForm">
-            <div class="form-group">
-              <label for="nombreInput">Nombre</label>
-              <input class="form-control" id="nombreInput" name="nombre"
-                     aria-describedby="nombreHelp" placeholder="Nombre" autocomplete="off">
-              <small id="nombreHelp" class="form-text text-muted">
-                Puedes usar "ScoobyDoo"
-              </small>
-            </div>
-            <div class="form-group">
-              <label for="ciudadInput">Ciudad</label>
-              <input class="form-control" id="ciudadInput" name="ciudad" placeholder="Ciudad">
-            </div>
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="genero" id="generoRadio1" value="masculino">
-                Hombre
-              </label>
-            </div>
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="genero" id="generoRadio2" value="femenino">
-                Mujer
-              </label>
-            </div>
-            <button class="btn btn-outline btn-xl">Agregarme</button>
-          </form>
+          <a class="btn btn-outline btn-xl js-scroll-trigger" href="#agregar">Agregar persona</a>
         </div>
       </div>
       <div class="col-lg-5 my-auto">
@@ -101,8 +76,8 @@
                 <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
                 <img src="img/go-home-screen.png" class="img-fluid" alt="">
               </div>
+              <!-- You can hook the "home button" to some JavaScript events or just remove it -->
               <a class="button" href="https://golang.org/" target="_blank">
-                <!-- You can hook the "home button" to some JavaScript events or just remove it -->
               </a>
             </div>
           </div>
@@ -112,81 +87,68 @@
   </div>
 </header>
 
-<section class="download bg-primary text-center" id="download">
+<section class="download bg-primary text-center" id="agregar">
   <div class="container">
     <div class="row">
       <div class="col-md-8 mx-auto">
-        <h2 class="section-heading">Descubre de que se trata Go</h2>
-        <p>Our app is available on any mobile device! Download now to get started!</p>
-        <div class="badges">
-          <a class="badge-link" href="#"><img src="img/google-play-badge.svg" alt=""></a>
-          <a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>
-        </div>
+        <h2>Agregar persona</h2>
+        <p class="text-muted">Ingresa datos en el formulario y serán persistidos</p>
+        <form action="/registrar" method="post" id="registroForm">
+          <div class="form-group">
+            <label for="nombreInput">Nombre</label>
+            <input class="form-control" id="nombreInput" name="nombre"
+                   aria-describedby="nombreHelp" placeholder="Nombre" autocomplete="off">
+            <small id="nombreHelp" class="form-text text-muted">
+              Puedes usar "ScoobyDoo"
+            </small>
+          </div>
+          <div class="form-group">
+            <label for="ciudadInput">Ciudad</label>
+            <input class="form-control" id="ciudadInput" name="ciudad" placeholder="Ciudad" autocomplete="off">
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="genero" id="generoRadio1" value="masculino">
+              Hombre
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="genero" id="generoRadio2" value="femenino">
+              Mujer
+            </label>
+          </div>
+          <button class="btn btn-outline btn-xl">Agregar</button>
+        </form>
+        <!--<h2 class="section-heading">Descubre de que se trata Go</h2>-->
+        <!--<p>Our app is available on any mobile device! Download now to get started!</p>-->
+        <!--<div class="badges">-->
+        <!--<a class="badge-link" href="#"><img src="img/google-play-badge.svg" alt=""></a>-->
+        <!--<a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>-->
+        <!--</div>-->
       </div>
     </div>
   </div>
 </section>
 
-<section class="features" id="features">
+<section class="features" id="personas">
   <div class="container">
     <div class="section-heading text-center">
-      <h2>Unlimited Features, Unlimited Fun</h2>
-      <p class="text-muted">Check out what you can do with this app theme!</p>
+      <h2>Personas registradas</h2>
+      <p class="text-muted">Estos son los registros existentes al momento</p>
       <hr>
     </div>
-    <div class="row">
-      <div class="col-lg-4 my-auto">
-        <div class="device-container">
-          <div class="device-mockup iphone6_plus portrait white">
-            <div class="device">
-              <div class="screen">
-                <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                <img src="img/demo-screen-1.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="button">
-                <!-- You can hook the "home button" to some JavaScript events or just remove it -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-8 my-auto">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="feature-item">
-                <i class="icon-screen-smartphone text-primary"></i>
-                <h3>Device Mockups</h3>
-                <p class="text-muted">Ready to use HTML/CSS device mockups, no Photoshop required!</p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="feature-item">
-                <i class="icon-camera text-primary"></i>
-                <h3>Flexible Use</h3>
-                <p class="text-muted">Put an image, video, animation, or anything else in the screen!</p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="feature-item">
-                <i class="icon-present text-primary"></i>
-                <h3>Free to Use</h3>
-                <p class="text-muted">As always, this theme is free to download and use for any purpose!</p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="feature-item">
-                <i class="icon-lock-open text-primary"></i>
-                <h3>Open Source</h3>
-                <p class="text-muted">Since this theme is MIT licensed, you can use it commercially!</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <table class="table no-more-tables" id="personasTabla">
+      <thead class="">
+      <tr>
+        <th>Nombre</th>
+        <th>Ciudad</th>
+        <th>Genero</th>
+      </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
   </div>
 </section>
 
@@ -194,13 +156,13 @@
   <div class="cta-content">
     <div class="container">
       <h2>Stop waiting.<br>Start building.</h2>
-      <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger">Let's Get Started!</a>
+      <a href="#admin" class="btn btn-outline btn-xl js-scroll-trigger">Let's Get Started!</a>
     </div>
   </div>
   <div class="overlay"></div>
 </section>
 
-<section class="contact bg-primary" id="contact">
+<section class="contact bg-primary" id="admin">
   <div class="container">
     <h2>We
       <i class="fa fa-heart"></i>
@@ -250,14 +212,20 @@
 <!-- Custom scripts for this template -->
 <script src="js/new-age.min.js"></script>
 <script>
-    $("#registroForm").submit(function (e) {
+    $(document).ready(function () {
+        actualizarLista();
+    });
+    var registroForm = $("#registroForm");
+    var personasTabla = $("#personasTabla");
+    registroForm.submit(function (e) {
         e.preventDefault();
         $.ajax({
             type: "POST",
             url: "/registrar",
-            data: $("#registroForm").serialize(),
+            data: registroForm.serialize(),
             success: function (data) {
-                console.log("Completo > " + data);
+                registroForm[0].reset();
+                actualizarLista();
             },
             error: function (e) {
                 if (e.status == 422) {
@@ -268,6 +236,26 @@
             }
         })
     });
+    var actualizarLista = function () {
+        $.ajax({
+            type: "GET",
+            url: "/personas",
+            success: function (data) {
+                tbody = personasTabla.find("tbody");
+                tbody.html("")
+                data.forEach(function (persona) {
+                    var tr = $("<tr></tr>");
+                    tr.append("<th scope='row' data-title='Nombre'>" + persona.nombre);
+                    tr.append("<td data-title='Ciudad'>" + persona.ciudad);
+                    tr.append("<td data-title='Genero'>" + persona.genero);
+                    tbody.append(tr);
+                });
+            },
+            error: function (e) {
+                console.log(e);
+            }
+        })
+    };
 </script>
 </body>
 </html>
